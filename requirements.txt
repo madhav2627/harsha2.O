@@ -1,6 +1,10 @@
 Flask
-flask_session
+Flask-Session
 flask_limiter
-requests
-wikipedia
 gunicorn
+Werkzeug
+itsdangerous
+Jinja2
+requests
+beautifulsoup4
+wikipedia
