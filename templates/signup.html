@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up • Harsha AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body class="auth-page">
+
+<div class="auth-box">
+    <h2>Create Account ✨</h2>
+
+    {% with messages=get_flashed_messages() %}
+      {% if messages %}
+        <p class="alert">{{ messages[0] }}</p>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <input name="username" placeholder="Choose username" required>
+        <input name="password" type="password" placeholder="Choose password" required>
+        <button>Sign Up</button>
+    </form>
+
+    <p>Already have an account?
+        <a href="/login">Login</a>
+    </p>
+</div>
+
+</body>
+</html>

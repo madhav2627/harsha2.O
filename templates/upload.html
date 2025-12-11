@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Upload File • Harsha AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <span class="logo">Harsha AI</span>
+    <a href="/">Home</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="upload-box">
+    <h2>Upload a File 📄</h2>
+
+    {% with messages=get_flashed_messages() %}
+      {% if messages %}
+        <p class="alert">{{ messages[0] }}</p>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button class="send-btn">Upload</button>
+    </form>
+
+</div>
+
+</body>
+</html>

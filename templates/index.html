@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Harsha AI</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <script src="/static/chat.js" defer></script>
+    <script src="/static/ui.js" defer></script>
+    <script src="/static/voice.js" defer></script>
+    <script src="/static/darkmode.js" defer></script>
+
+</head>
+<body>
+
+<!-- Mobile Sidebar -->
+<div id="drawer" class="mobile-drawer">
+    <a href="/">🏠 Home</a>
+    <a href="/profile">👤 Profile</a>
+    <a href="/upload">📤 Upload File</a>
+    <a href="/download">⬇️ Download Chat</a>
+    <a href="/reset">🗑 Clear Chat</a>
+    <a href="/logout">🚪 Logout</a>
+</div>
+
+<!-- Navbar -->
+<div class="navbar">
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+    <span class="logo">Harsha AI</span>
+
+    <div class="sidebar">
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/upload">Upload</a>
+        <a href="/download">Download</a>
+        <a href="/reset">Reset</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <span class="user">Hi, {{ user }} 👋</span>
+
+    <button onclick="toggleDarkMode()" class="mic-btn">🌙</button>
+</div>
+
+<!-- Chat UI -->
+<div class="chat-container">
+
+    <div id="chat-box">
+        {% for msg in messages %}
+            <div class="msg {{ 'user-msg' if msg.who == 'user' else 'bot-msg' }}">
+                <strong>{{ msg.who }}:</strong> {{ msg.text }}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div id="typing" class="typing">Harsha is typing…</div>
+
+    <div class="chat-bottom">
+
+        <button onclick="startVoice()" class="mic-btn">🎤</button>
+
+        <input type="text" id="user-input" placeholder="Type a message…">
+
+        <button class="send-btn" onclick="document.getElementById('chat-form').dispatchEvent(new Event('submit'))">
+            ➤
+        </button>
+
+    </div>
+
+    <!-- Hidden form for compatibility -->
+    <form id="chat-form"></form>
+
+</div>
+
+</body>
+</html>

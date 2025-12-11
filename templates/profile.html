@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Your Profile • Harsha AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <span class="logo">Harsha AI</span>
+    <a href="/">Home</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="profile-box">
+    <h2>Your Profile 👤</h2>
+
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Account Created:</strong> {{ user.created_at }}</p>
+    <p><strong>Total Messages:</strong> {{ messages }}</p>
+    <p><strong>Total Memories:</strong> {{ memories }}</p>
+
+    <button onclick="toggleDarkMode()" class="send-btn">Toggle Dark Mode</button>
+</div>
+
+</body>
+</html>
